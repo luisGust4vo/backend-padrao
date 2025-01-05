@@ -17,8 +17,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "joi": "^17.13.3",
-    "prisma": "^6.1.0",
-    "reflect-metadata": "^0.2.2"
+    "prisma": "^6.1.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
