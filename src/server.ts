@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import app from "./app";
 
 // Carregar as variáveis de ambiente
-dotenv.config({ path: ".env.local" });
+dotenv.config({ path: ".env.development" });
 
 // Garantir que o PORT seja um número
 const PORT: number = parseInt(process.env.PORT as string, 10);

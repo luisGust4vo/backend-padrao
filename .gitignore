@@ -1,3 +1,14 @@
 node_modules
 .env
 .env.local
+.env.testing
+.env.development
+
+# Docker
+**/node_modules/
+**/dist/
+.docker/
+.docker-compose/
+*.log
+*.tar
+docker-compose.override.yml
