@@ -14,9 +14,11 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.1.0",
-    "class-validator": "^0.14.1",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "prisma": "^6.1.0"
+    "joi": "^17.13.3",
+    "prisma": "^6.1.0",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",

@@ -1,23 +1,21 @@
+// controllers/user.controller.ts
 import { Request, Response } from "express";
-import { UserService } from "../services/userService";
+import { CreateUserDTO } from "../dtos/create-user.dto"; // Importando o DTO
+import { createUserSchema } from "../schemas/create-user.schema"; // Importando o esquema Joi
 
-export class UserController {
-  static async create(req: Request, res: Response) {
-    const { name, email } = req.body;
-    try {
-      const user = await UserService.createUser({ name, email });
-      return res.status(201).json(user);
-    } catch (error) {
-      return res.status(400).json({ error: "Erro ao criar usuário" });
-    }
+export const createUser = (req: Request, res: Response) => {
+  // Validando os dados de entrada com Joi
+  const { error } = createUserSchema.validate(req.body);
+
+  if (error) {
+    return res.status(400).json({ message: error.details[0].message });
   }
 
-  static async getAll(req: Request, res: Response) {
-    try {
-      const users = await UserService.getAllUsers();
-      return res.status(200).json(users);
-    } catch (error) {
-      return res.status(500).json({ error: "Erro ao buscar usuários" });
-    }
-  }
-}
+  // Se a validação passar, use a interface para garantir que a estrutura dos dados esteja correta
+  const { name, email, age }: CreateUserDTO = req.body;
+
+  // Aqui você pode continuar com a lógica de criação do usuário
+  return res
+    .status(201)
+    .json({ message: "User created successfully", user: { name, email, age } });
+};

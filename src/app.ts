@@ -1,4 +1,3 @@
-// src/app.ts
 import express from "express";
 import userRoutes from "./routes/userRoutes";
 
